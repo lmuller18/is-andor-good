@@ -7,4 +7,4 @@ socialImage: "/andor-good.webp"
 heroImage: "/andor-good.webp"
 ---
 
-Andor was good today
+Andor was good today.

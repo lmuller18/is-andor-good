@@ -28,40 +28,54 @@ const ogImage = socialImage ?? heroImage;
         font-size: 2em;
         margin: 0.25em 0 0;
       }
-      hr {
-        border-top: 1px solid #ddd;
-        margin: 1rem 0;
-      }
     </style>
   </head>
 
-  <body>
+  <body class="min-h-screen grid grid-rows-[auto,1fr,auto]">
     <Header />
-    <main>
+    <main class="mb-4">
       <article>
-        {heroImage && <img width={720} height={360} src={heroImage} alt="" />}
-        <h1 class="title">{title}</h1>
         {
-          pubDate && (
-            <time>
-              {new Date(pubDate).toLocaleDateString("en-us", {
-                year: "numeric",
-                month: "short",
-                day: "numeric",
-              })}
-            </time>
+          heroImage && (
+            <img
+              width={720}
+              height={360}
+              src={heroImage}
+              alt=""
+              class="rounded-xl overflow-hidden"
+            />
           )
         }
-        {
-          updatedDate && (
-            <div>
-              Last updated on <time>{updatedDate}</time>
-            </div>
-          )
-        }
-        <hr />
+        <div class="border-b-gray-700 pb-4 border-b mb-4">
+          <h1 class="title">{title}</h1>
+          {
+            pubDate && (
+              <time>
+                {new Date(pubDate).toLocaleDateString("en-us", {
+                  year: "numeric",
+                  month: "short",
+                  day: "numeric",
+                })}
+              </time>
+            )
+          }
+          {
+            updatedDate && (
+              <div>
+                Last updated on <time>{updatedDate}</time>
+              </div>
+            )
+          }
+        </div>
         <slot />
       </article>
     </main>
+
+    <footer class="border-t border-t-gray-700 pt-4 min-h-[50px]">
+      <p class="text-xs text-gray-300 font-light tracking-tight">
+        Views expressed in this review are confidently stated as fact and are
+        intended to be interpreted as such.
+      </p>
+    </footer>
   </body>
 </html>
