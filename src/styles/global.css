@@ -30,7 +30,7 @@ b {
   color: #eee;
 }
 a {
-  color: #3273dc;
+  @apply text-blue-500 hover:text-blue-400;
 }
 nav a {
   margin-right: 10px;
